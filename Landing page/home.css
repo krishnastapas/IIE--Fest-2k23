@@ -195,7 +195,7 @@
   background-size: cover;
   justify-content: center;
   background-color: #D9D9D9;
-  background-image: url("public/playground_assets/whatsapp%20image%202023-03-11%20at%2010.12.42-1500h.jpeg");
+  background-image: url("public/playground_assets/whatsapp%20image%202023-03-11%20at%2010.12.42-1500h.jpg");
   background-position: bottom;
 }
 .home-container02 {
@@ -234,7 +234,8 @@
   border-radius: var(--dl-radius-radius-radius4);
   padding-right: var(--dl-space-space-twounits);
   padding-bottom: var(--dl-space-space-unit);
-  background-color: rgb(0, 193, 233);
+  background-color: rgb(151 225 241);
+  margin-top: 15%;
 }
 .home-button:hover {
   transform: scale(1.02);
