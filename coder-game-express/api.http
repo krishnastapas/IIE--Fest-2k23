@@ -1,0 +1,29 @@
+@hostname = localhost
+
+@protocal = http
+@port = 3030
+@endpoint = {{protocal}}://{{hostname}}:{{port}}/api
+
+
+
+#----------     Agency      ----------#
+
+###     fetch all agencies
+GET  {{endpoint}}/agency-list
+
+
+###     create new agency
+GET {{endpoint}}/user-list
+
+
+
+###     create new agency
+POST {{endpoint}}/user
+content-type: application/json
+
+{
+   "name": "A",
+   "mail": "B",
+   "year": "Ahhhhhhhhhh",
+   "department": "A"
+}
