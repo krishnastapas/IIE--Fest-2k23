@@ -51,8 +51,8 @@ content-type: application/json
 {
    "stime": 176
 }
-### get user list
-### get user by mail
+### ? get user list
+### ? get user by mail
 ### ? add user
 ### ? delete user
 ### ? update user
