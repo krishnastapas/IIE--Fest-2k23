@@ -1,4 +1,6 @@
 import express from 'express'
 
 
-let userRouter = expre
+let userRouter = express.Router()
+
+userRouter.get()

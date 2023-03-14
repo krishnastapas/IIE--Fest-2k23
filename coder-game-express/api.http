@@ -1,7 +1,7 @@
 @hostname = localhost
 
 @protocal = http
-@port = 3030
+@port = 3032
 @endpoint = {{protocal}}://{{hostname}}:{{port}}/api
 
 
@@ -15,15 +15,58 @@ GET  {{endpoint}}/agency-list
 ###     create new agency
 GET {{endpoint}}/user-list
 
-
-
 ###     create new agency
+GET {{endpoint}}/user-by-mail/G
+
+
+###     create new user
 POST {{endpoint}}/user
 content-type: application/json
 
 {
-   "name": "A",
+   "name": "xxxxxxxxxxxx",
    "mail": "B",
-   "year": "Ahhhhhhhhhh",
-   "department": "A"
+   "compelete": 0,
+   "active": 0
 }
+
+###     delete user
+DELETE  {{endpoint}}/user/10
+
+###     update user
+PATCH  {{endpoint}}/user/11
+content-type: application/json
+
+{
+   "name": "xxxaaaaaaaaaa",
+   "mail": "B",
+   "compelete": 0,
+   "active": 1
+}
+
+###     update start time user
+PATCH  {{endpoint}}/user/11/stime
+content-type: application/json
+
+{
+   "stime": 176
+}
+### get user list
+### get user by mail
+### ? add user
+### ? delete user
+### ? update user
+### ? update user start time
+
+### admin login
+
+### get answer list
+### get answer list by mail
+### get score list
+### add answer
+### delete answer
+
+answer
+   mail
+   ctime
+   answer

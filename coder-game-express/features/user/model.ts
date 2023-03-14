@@ -1,7 +1,8 @@
 export interface UserModel {
-  id?:number
+  id?: number;
   name: string;
   mail: string;
-  year: string;
-  department: string;
+  compelete: number;
+  active: number;
+  stime: number;
 }

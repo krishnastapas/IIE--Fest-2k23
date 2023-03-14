@@ -2,12 +2,19 @@ import mysql from "mysql";
 
 // chat_auth DataBase Connection
 const chat_auth = mysql.createConnection({
-  host: "localhost",
+  host: "ec2-3-110-167-11.ap-south-1.compute.amazonaws.com",
   user: "root",
-  password: "",
+  password: "hFs5ehD7sjdV5te",
   database: "iie_fest",
 });
 
+var mysql_pool = mysql.createPool({
+  connectionLimit: 100,
+  host: "ec2-3-110-167-11.ap-south-1.compute.amazonaws.com",
+  user: "root",
+  password: "hFs5ehD7sjdV5te",
+  database: "iie_fest",
+});
 // // Check If E-mail Already Used By Any Account
 // export const emailCheckSQL = async (email) => {
 //     // Return
@@ -124,7 +131,7 @@ export interface SQLResponseInterface {
   result: any;
 }
 //parameter
-export async function SQL(
+export async function SQL1(
   sql: string,
   data: any[]
 ): Promise<SQLResponseInterface> {
@@ -142,6 +149,7 @@ export async function SQL(
           let data: SQLResponseInterface = {
             result: result,
           };
+          chat_auth.destroy();
           resolve(data);
         } else {
           let data: SQLResponseInterface = {
@@ -151,6 +159,7 @@ export async function SQL(
               message: err.message,
             },
           };
+          chat_auth.destroy();
           resolve(data);
         }
       });
@@ -162,10 +171,57 @@ export async function SQL(
   }
 
   // Its has a problem
-  //   chat_auth.destroy();
+  // chat_auth.destroy();
   return rout;
 }
 
+export async function SQL(
+  sql: string,
+  data: any[]
+): Promise<SQLResponseInterface> {
+  let rout: SQLResponseInterface = { result: 0 };
+  var error;
+
+  const db = async () => {
+    return new Promise((resolve) => {
+      mysql_pool.getConnection(function (err, connection) {
+        if (err) {
+          connection.release();
+          resolve({
+            result: 0,
+            err: {
+              code: "500",
+              message: err.message,
+            },
+          });
+        }
+        connection.query(sql, data, function (err2, rows, fields) {
+          if (err2) {
+            resolve({
+              result: 0,
+              err: {
+                code: "500",
+                message: err2.message,
+              },
+            });
+          } else {
+            resolve({ result: rows });
+          }
+          // console.log(rout); // Only Dev
+          // console.log(" mysql_pool.release()");
+          connection.release();
+        });
+      });
+    });
+  };
+
+  if (error == null) {
+    rout = (await db()) as SQLResponseInterface;
+  }
+  // Its has a problem
+  // chat_auth.destroy();
+  return rout;
+}
 // ############## SQL ERROR
 
 // Okay Query
