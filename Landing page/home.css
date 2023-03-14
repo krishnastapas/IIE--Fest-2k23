@@ -881,7 +881,6 @@
   }
 }
 
-// mobile device 
 
 @media(max-width: 479px) {
   .home-header {
@@ -895,7 +894,7 @@
     padding-left: var(--dl-space-space-unit);
     padding-right: var(--dl-space-space-unit);
     padding-bottom: var(--dl-space-space-twounits);
-    background-image: url('https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8ZmVzdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=1500&q=60');
+    background-image: url('./public/dc.phone.jpeg');
   }
   .home-text06 {
     padding-left: var(--dl-space-space-unit);
