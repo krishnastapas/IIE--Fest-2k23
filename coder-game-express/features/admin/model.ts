@@ -3,4 +3,5 @@ export interface AdminModel {
   name: string;
   mail: string;
   password: string;
+  role?: string;
 }

@@ -19,9 +19,9 @@ export async function PostAdminLogin(req: Request, res: Response) {
     });
   }
 
- let adminData = r.data[0] as AdminModel;
-  console.log(admin.password);   // Only Dev
-  console.log(adminData.password);   // Only Dev
+  let adminData = r.data[0] as AdminModel;
+  console.log(admin.password); // Only Dev
+  console.log(adminData.password); // Only Dev
 
   if (admin.password !== adminData.password) {
     return res.json({
@@ -30,9 +30,10 @@ export async function PostAdminLogin(req: Request, res: Response) {
     });
   }
 
+  adminData.role = "admin";
   return res.json({
     code: 200,
     message: "read successfully",
-    data: r.data,
+    data: adminData,
   });
 }

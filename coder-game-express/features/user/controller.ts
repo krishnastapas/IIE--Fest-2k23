@@ -33,7 +33,7 @@ export async function GetUserList(req: Request, res: Response) {
 export async function GetUserByMail(req: Request, res: Response) {
   let mail: string = req.params.mail;
   let r = await ReadUserByMail(mail);
-console.log(r);   // Only Dev
+  console.log(r); // Only Dev
   if (r.code !== 200) {
     return res.json({
       code: r.code,
@@ -41,10 +41,13 @@ console.log(r);   // Only Dev
     });
   }
 
+  let user = r.data[0] as UserModel;
+  user.role = "user";
+
   return res.json({
     code: 200,
     message: "read successfully",
-    data: r.data,
+    data: user,
   });
 }
 

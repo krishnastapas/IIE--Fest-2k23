@@ -5,4 +5,5 @@ export interface UserModel {
   compelete: number;
   active: number;
   stime: number;
+  role?: string;
 }
