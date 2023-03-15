@@ -3,8 +3,8 @@
     display: flex;
     z-index: 100;
     overflow: hidden;
-    box-shadow: 5px 5px 10px 0px #d4d4d4;
-    min-height: 100vh;
+    /* box-shadow: 5px 5px 10px 0px #d4d4d4; */
+    /* min-height: 100vh; */
     /* border-color: var(--dl-color-gray-black); */
     /* border-width: 1px; */
     flex-direction: column;

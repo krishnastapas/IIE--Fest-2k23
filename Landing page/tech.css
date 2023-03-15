@@ -56,7 +56,7 @@
   padding-left: var(--dl-space-space-fiveunits);
   padding-right: var(--dl-space-space-fiveunits);
   flex-direction: row;
-  padding-bottom: var(--dl-space-space-fiveunits);
+  /* padding-bottom: var(--dl-space-space-fiveunits); */
   justify-content: space-between;
   /* background-image: radial-gradient(circle at center top, rgb(189, 195, 199) 0.00%,rgb(191, 213, 234) 100.00%); */
 }
