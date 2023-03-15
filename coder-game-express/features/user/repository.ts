@@ -7,13 +7,22 @@ export interface UserRepoModel {
 }
 export async function FetchUsers() {
   let sql: string =
-    "SELECT `id`, `name`, `mail`, `year`, `department`" + "FROM users";
+    "SELECT `id`, `name`, `mail`, `compelete`, `active`, `stime`" +
+    "FROM users";
   let sqlRes = await SQL(sql, []);
+  let data: UserRepoModel = {
+    code: 500,
+    message: "internal server error",
+  };
 
   if (sqlRes.result == 0) {
-    return [];
+    data.message = sqlRes.err?.message!;
+    return data;
   }
-  let data: UserModel[] = sqlRes.result;
+
+  data.data = sqlRes.result;
+  data.code = 200;
+  data.message = "read successfully";
   return data;
 }
 

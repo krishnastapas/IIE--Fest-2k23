@@ -205,7 +205,17 @@ export async function SQL(
               },
             });
           } else {
-            resolve({ result: rows });
+            if (rows.length == 0) {
+              resolve({
+                result: 0,
+                err: {
+                  code: "404",
+                  message: "Not Found",
+                },
+              });
+            } else {
+              resolve({ result: rows });
+            }
           }
           // console.log(rout); // Only Dev
           // console.log(" mysql_pool.release()");

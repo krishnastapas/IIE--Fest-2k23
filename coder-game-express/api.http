@@ -6,16 +6,11 @@
 
 
 
-#----------     Agency      ----------#
-
-###     fetch all agencies
-GET  {{endpoint}}/agency-list
-
-
-###     create new agency
+#----------     User      ----------#
+###     create new user
 GET {{endpoint}}/user-list
 
-###     create new agency
+###     create new user
 GET {{endpoint}}/user-by-mail/G
 
 
@@ -58,6 +53,20 @@ content-type: application/json
 ### ? update user
 ### ? update user start time
 
+
+
+
+
+
+
+###     admin login
+POST {{endpoint}}/admin/login
+content-type: application/json
+
+{
+   "mail": "foryoufreeapp@gmail.com",
+   "password":"ami@chaya0123"
+}
 ### admin login
 
 ### get answer list

@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import { DeleteUser, GetUserList, GetUserByMail, PatchUser, PatchUserStime, PostUser } from "./features/user/controller";
+import { PostAdminLogin } from "./features/admin/controller";
 
 dotenv.config();
 
@@ -23,8 +24,8 @@ app.patch("/api/user/:id", PatchUser);
 app.patch("/api/user/:id/stime", PatchUserStime);
 
 
-// // ==========   admin   ========== \\
-// app.post("/api/admin/login", PostUser);
+// ==========   admin   ========== \\
+app.post("/api/admin/login", PostAdminLogin);
 
 
 // // ==========   User   ========== \\

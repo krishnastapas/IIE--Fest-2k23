@@ -14,19 +14,19 @@ interface ResponseInterface {
   data?: any;
 }
 export async function GetUserList(req: Request, res: Response) {
-  let userList = await FetchUsers();
+  let r = await FetchUsers();
 
-  if (userList.length == 0) {
+  if (r.code !== 200) {
     return res.json({
-      code: 404,
-      message: "Not Found",
+      code: r.code,
+      message: r.message,
     });
   }
 
   return res.json({
     code: 200,
     message: "read successfully",
-    data: userList,
+    data: r.data,
   });
 }
 
@@ -60,7 +60,7 @@ export async function PostUserList(req: Request, res: Response) {
     });
 
   return res.json({
-    code: 200,
+    code: 201,
     message: "created successfully",
     data: req.body,
   });
